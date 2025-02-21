@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const images = [
-    "/thumbnail/thumbnail (1).jpg", "/thumbnail/thumbnail (2).jpg", "/thumbnail/thumbnail (3).jpg", "/thumbnail/thumbnail (4).jpg",
-    "/thumbnail/thumbnail (5).jpg", "/thumbnail/thumbnail (6).jpg", "/thumbnail/thumbnail (7).jpg", "/thumbnail/thumbnail (8).jpg",
-    "/thumbnail/thumbnail (9).jpg", "/thumbnail/thumbnail (10).jpg"
+    "/slider/slider (1).jpg", "/slider/slider (2).jpg", "/slider/slider (3).jpg", "/slider/slider (4).jpg",
+    "/slider/slider (5).jpg", "/slider/slider (6).jpg"
   ];
+  
   
 
 const Slider = () => {
@@ -32,7 +32,7 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % (images.length - itemsPerView + 1));
-    }, 2000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [itemsPerView]);
 
@@ -44,7 +44,7 @@ const Slider = () => {
       >
         {images.concat(images.slice(0, itemsPerView)).map((src, i) => (
           <div key={i} style={{ minWidth: `${100 / itemsPerView}%`, padding: "8px" }}>
-            <Image src={src} alt={`Slide ${i + 1}`} width={300} height={200} className="w-full h-auto rounded-lg" />
+            <Image src={src} alt={`Slide ${i + 1}`} width={300} height={300} className="w-full h-auto rounded-lg" />
           </div>
         ))}
       </div>
