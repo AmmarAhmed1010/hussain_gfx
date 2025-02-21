@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const images = [
     "/slider/slider (1).jpg", "/slider/slider (2).jpg", "/slider/slider (3).jpg", "/slider/slider (4).jpg",
-    "/slider/slider (5).jpg", "/slider/slider (6).jpg"
+    "/slider/slider (5).jpg", "/slider/slider (6).jpg", "/slider/slider (7).jpg", "/slider/slider (8).jpg"
   ];
   
   
