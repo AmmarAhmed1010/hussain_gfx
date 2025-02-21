@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-import Slider from "./Slider";
 import DualSlider from "./InfiniteSlider";
 
 const Hero: React.FC = () => {
