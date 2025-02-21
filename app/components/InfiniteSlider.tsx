@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -20,7 +20,7 @@ const InfiniteSlider = ({ direction = "left" }) => {
         transition={{ ease: "linear", repeat: Infinity, duration: 10 }}
       >
         {[...images, ...images].map((src, index) => (
-          <div key={index} className="w-1/4 p-2 min-w-[25%]">
+          <div key={index} className="p-2 min-w-[50%] md:min-w-[25%] md:w-1/4">
             <Image src={src} alt={`Slide ${index + 1}`} width={300} height={300} className="w-full h-auto rounded-lg" />
           </div>
         ))}
