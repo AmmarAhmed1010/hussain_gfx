@@ -1,15 +1,13 @@
 import React from 'react'
-import Hero from './components/Hero'
-import Faq from './components/Faq'
-import DualSlider from './components/InfiniteSlider'
+import NotFound from './components/NotFound'
 
 const page = () => {
   return (
     <div>
-     
-      <Hero/>
+     <NotFound/>
+      {/* <Hero/>
       <DualSlider/>
-      <Faq/>
+      <Faq/> */}
   
     </div>
   )
