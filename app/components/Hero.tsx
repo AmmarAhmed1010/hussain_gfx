@@ -6,7 +6,7 @@ import DualSlider from "./InfiniteSlider";
 
 const Hero: React.FC = () => {
   return (
-    <div className="bg-[#030303]  flex flex-col justify-center items-center text-[#D4D4D4]">
+    <div className="bg-[#030303] h-[80vh] md:h-[90vh] flex flex-col justify-center items-center text-[#D4D4D4]">
       {/* Hero Content */}
       <div className="text-center max-w-4xl">
         <h1 className="text-3xl md:text-5xl font-bold mb-6">
