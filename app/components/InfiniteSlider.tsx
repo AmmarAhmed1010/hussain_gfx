@@ -30,7 +30,6 @@ const DualSlider = () => {
 
   return (
     <div className="w-full space-y-6 overflow-hidden">
-      {/* First Slider (Left to Right) */}
       <div className="w-full overflow-hidden relative">
         <motion.div
           className="flex"
@@ -52,8 +51,6 @@ const DualSlider = () => {
           ))}
         </motion.div>
       </div>
-
-      {/* Second Slider (Right to Left) */}
       <div className="w-full overflow-hidden relative">
         <motion.div
           className="flex"
