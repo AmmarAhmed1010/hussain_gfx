@@ -1,13 +1,11 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const images = [
-    "/slider/slider (1).jpg", "/slider/slider (2).jpg", "/slider/slider (3).jpg", "/slider/slider (4).jpg",
-    "/slider/slider (5).jpg", "/slider/slider (6).jpg", "/slider/slider (7).jpg", "/slider/slider (8).jpg"
-  ];
-  
-  
+  "/slider/slider (1).jpg", "/slider/slider (2).jpg", "/slider/slider (3).jpg", "/slider/slider (4).jpg",
+  "/slider/slider (5).jpg", "/slider/slider (6).jpg", "/slider/slider (7).jpg", "/slider/slider (8).jpg"
+];
 
 const Slider = () => {
   const [index, setIndex] = useState(0);
@@ -32,7 +30,7 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % (images.length - itemsPerView + 1));
-    }, 1000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [itemsPerView]);
 
@@ -44,7 +42,16 @@ const Slider = () => {
       >
         {images.concat(images.slice(0, itemsPerView)).map((src, i) => (
           <div key={i} style={{ minWidth: `${100 / itemsPerView}%`, padding: "8px" }}>
-            <Image src={src} alt={`Slide ${i + 1}`} width={300} height={300} className="w-full h-auto rounded-lg" />
+            <Image
+              src={src}
+              alt={`Slide ${i + 1}`}
+              width={300}
+              height={300}
+              className="w-full h-auto rounded-lg"
+              priority={i < itemsPerView} // Load first few images faster
+              loading={i < itemsPerView ? "eager" : "lazy"} // Lazy load others
+              quality={80} // Reduce image size without visible loss
+            />
           </div>
         ))}
       </div>
