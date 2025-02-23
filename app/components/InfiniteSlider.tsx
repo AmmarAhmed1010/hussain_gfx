@@ -16,8 +16,6 @@ const images = [
 
 const DualSlider = () => {
   const [itemsPerView, setItemsPerView] = useState(4);
-  const totalSlides = images.length;
-
   useEffect(() => {
     const updateItemsPerView = () => {
       if (window.innerWidth < 640) setItemsPerView(2);
