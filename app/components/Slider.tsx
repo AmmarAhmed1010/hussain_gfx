@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 const images = [
@@ -8,8 +8,8 @@ const images = [
 ];
 
 const Slider = () => {
-  const [index, setIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -27,20 +27,23 @@ const Slider = () => {
     return () => window.removeEventListener("resize", updateItemsPerView);
   }, []);
 
+  // Pause animation when tab is inactive
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % (images.length - itemsPerView + 1));
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [itemsPerView]);
+    const handleVisibilityChange = () => {
+      setIsPaused(document.hidden);
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
 
   return (
     <div className="overflow-hidden w-full relative flex items-center justify-center">
       <div
-        className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${index * (100 / itemsPerView)}%)` }}
+        className={`flex transition-transform ease-in-out duration-700 ${
+          isPaused ? "" : "animate-slider"
+        }`}
       >
-        {images.concat(images.slice(0, itemsPerView)).map((src, i) => (
+        {[...images, ...images].map((src, i) => (
           <div key={i} style={{ minWidth: `${100 / itemsPerView}%`, padding: "8px" }}>
             <Image
               src={src}
@@ -48,13 +51,24 @@ const Slider = () => {
               width={300}
               height={300}
               className="w-full h-auto rounded-lg"
-              priority={i < itemsPerView} // Load first few images faster
-              loading={i < itemsPerView ? "eager" : "lazy"} // Lazy load others
-              quality={80} // Reduce image size without visible loss
+              priority={i < itemsPerView}
+              loading={i < itemsPerView ? "eager" : "lazy"}
+              quality={80}
             />
           </div>
         ))}
       </div>
+
+      {/* CSS Animation for Infinite Scrolling */}
+      <style jsx>{`
+        @keyframes slide {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-slider {
+          animation: slide 10s linear infinite;
+        }
+      `}</style>
     </div>
   );
 };
