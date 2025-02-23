@@ -38,7 +38,7 @@ const Faq: React.FC = () => {
             className={`p-4 border rounded-lg shadow-sm border-[#D4D4D4] transition-colors duration-300 ${activeIndex === index ? "bg-[#232323] text-[#FFFFFF]" : "bg-[#6B6B6B] text-[#D4D4D4]"}`}
           >
             <button
-              className="text-lg font-semibold w-full text-left flex justify-between items-center focus:outline-none"
+              className="text-sm md:text-lg lg:text-xl font-semibold w-full text-left flex justify-between items-center focus:outline-none"
               onClick={() => handleToggle(index)}
             >
               {faq.question}

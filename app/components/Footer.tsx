@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <footer className="bg-[#030303] text-[#D4D4D4] py-4 text-center">
       <div className="flex justify-center items-center space-x-4 mb-2">
         <a
-          href="https://www.instagram.com/"
+          href="https://www.instagram.com/hussaingfx_/?utm_source=ig_web_button_share_sheet"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#D4D4D4] text-5xl hover:text-[#E900B9]"

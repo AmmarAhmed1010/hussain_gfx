@@ -29,7 +29,7 @@ const DualSlider = () => {
   }, []);
 
   return (
-    <div className="w-full space-y-6 overflow-hidden">
+    <div className="w-full space-y-2 overflow-hidden">
       <div className="w-full overflow-hidden relative">
         <motion.div
           className="flex"

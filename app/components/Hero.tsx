@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   return (
     <div className="bg-[#030303] min-h-[80vh] md:min-h-[90vh] flex flex-col justify-center items-center text-[#D4D4D4] overflow-hidden">
       <div className="text-center max-w-4xl">
-        <h1 className="text-2xl md:text-4xl font-bold mb-2">
+        <h1 className="text-2xl md:text-5xl font-bold mb-6">
           Welcome to Hussain GFX
         </h1>
         <h2 className="text-xl md:text-3xl font-semibold mb-2 text-[#E900B9]">
@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
         <h3 className="text-lg md:text-2xl mb-4">Thumbnails That Stand Out</h3>
       </div>
 
-      <div >
+      <div className="w-full max-w-7xl overflow-hidden relative">
         <DualSlider />
       </div>
 
