@@ -1,49 +1,82 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 const images = [
-  "/slider/slider (1).jpg", "/slider/slider (2).jpg", "/slider/slider (3).jpg", "/slider/slider (4).jpg",
-  "/slider/slider (5).jpg", "/slider/slider (6).jpg", "/slider/slider (7).jpg", "/slider/slider (8).jpg"
+  "/slider/slider (1).jpg",
+  "/slider/slider (2).jpg",
+  "/slider/slider (3).jpg",
+  "/slider/slider (4).jpg",
+  "/slider/slider (5).jpg",
+  "/slider/slider (6).jpg",
+  "/slider/slider (7).jpg",
+  "/slider/slider (8).jpg",
 ];
 
-const InfiniteSlider = ({ direction = "left" }) => {
-  const containerRef = useRef(null);
-
-  return (
-    <div className="relative overflow-hidden w-full">
-      <motion.div
-        ref={containerRef}
-        className="flex whitespace-nowrap flex-nowrap"
-        animate={{ x: direction === "left" ? ["0%", "-100%"] : ["-100%", "0%"] }}
-        transition={{ ease: "linear", repeat: Infinity, duration: 10, repeatType: "loop" }}
-      >
-        {[...images, ...images].map((src, index) => (
-          <div key={index} className="p-2 min-w-[50%] md:min-w-[25%] md:w-1/4">
-            <Image 
-              src={src} 
-              alt={`Slide ${index + 1}`} 
-              width={300} 
-              height={300} 
-              className="w-full h-auto rounded-lg" 
-              loading="lazy"
-              unoptimized={true} 
-            />
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
-
 const DualSlider = () => {
+  const [itemsPerView, setItemsPerView] = useState(4);
+  const totalSlides = images.length;
+
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth < 640) setItemsPerView(2);
+      else if (window.innerWidth < 1024) setItemsPerView(3);
+      else setItemsPerView(4);
+    };
+
+    updateItemsPerView();
+    window.addEventListener("resize", updateItemsPerView);
+    return () => window.removeEventListener("resize", updateItemsPerView);
+  }, []);
+
   return (
-    <div className="space-y-4">
-      {/* Top Slider */}
-      <InfiniteSlider direction="left" />
-      {/* Bottom Slider */}
-      <InfiniteSlider direction="right" />
+    <div className="w-full space-y-6 overflow-hidden">
+      {/* First Slider (Left to Right) */}
+      <div className="w-full overflow-hidden relative">
+        <motion.div
+          className="flex"
+          animate={{ x: ["0%", `-${100}%`] }}
+          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+        >
+          {[...images, ...images].map((src, i) => (
+            <div key={i} style={{ minWidth: `${100 / itemsPerView}%`, padding: "8px" }}>
+              <Image
+                src={src}
+                alt={`Slide ${i + 1}`}
+                width={300}
+                height={300}
+                priority={i < 2}
+                quality={80}
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Second Slider (Right to Left) */}
+      <div className="w-full overflow-hidden relative">
+        <motion.div
+          className="flex"
+          animate={{ x: [`-${100}%`, "0%"] }}
+          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+        >
+          {[...images, ...images].map((src, i) => (
+            <div key={i} style={{ minWidth: `${100 / itemsPerView}%`, padding: "8px" }}>
+              <Image
+                src={src}
+                alt={`Slide ${i + 1}`}
+                width={300}
+                height={300}
+                priority={i < 2}
+                quality={80}
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-// import DualSlider from "./InfiniteSlider";
+import DualSlider from "./InfiniteSlider";
 
 const Hero: React.FC = () => {
   return (
@@ -21,9 +21,9 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Sliders (Reduced Height for Balance) */}
-      {/* <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl">
         <DualSlider />
-      </div> */}
+      </div>
 
       {/* CTA Button */}
       <Link href="/my-work">

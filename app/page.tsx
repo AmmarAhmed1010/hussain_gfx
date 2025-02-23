@@ -1,17 +1,14 @@
-import React from 'react'
-import Hero from './components/Hero'
-import Faq from './components/Faq'
-import DualSlider from './components/InfiniteSlider'
+import React from "react";
+import Hero from "./components/Hero";
+import Faq from "./components/Faq";
 
 const page = () => {
   return (
     <div>
-      <Hero/>
-
-      <DualSlider/>
-      <Faq/>
+      <Hero />
+      <Faq />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
