@@ -29,7 +29,7 @@ const Faq: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqData.map((faq, index) => (

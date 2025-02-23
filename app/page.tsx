@@ -1,14 +1,12 @@
 import React from 'react'
-import NotFound from './components/NotFound'
+import Hero from './components/Hero'
+import Faq from './components/Faq'
 
 const page = () => {
   return (
     <div>
-     <NotFound/>
-      {/* <Hero/>
-      <DualSlider/>
-      <Faq/> */}
-  
+      <Hero/>
+      <Faq/>
     </div>
   )
 }
