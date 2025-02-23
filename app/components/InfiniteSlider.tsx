@@ -15,13 +15,21 @@ const InfiniteSlider = ({ direction = "left" }) => {
     <div className="relative overflow-hidden w-full">
       <motion.div
         ref={containerRef}
-        className="flex"
-        animate={{ x: direction === "left" ? [0, "-100%"] : ["-100%", 0] }}
-        transition={{ ease: "linear", repeat: Infinity, duration: 10 }}
+        className="flex whitespace-nowrap flex-nowrap"
+        animate={{ x: direction === "left" ? ["0%", "-100%"] : ["-100%", "0%"] }}
+        transition={{ ease: "linear", repeat: Infinity, duration: 10, repeatType: "loop" }}
       >
         {[...images, ...images].map((src, index) => (
           <div key={index} className="p-2 min-w-[50%] md:min-w-[25%] md:w-1/4">
-            <Image src={src} alt={`Slide ${index + 1}`} width={300} height={300} className="w-full h-auto rounded-lg" />
+            <Image 
+              src={src} 
+              alt={`Slide ${index + 1}`} 
+              width={300} 
+              height={300} 
+              className="w-full h-auto rounded-lg" 
+              loading="lazy"
+              unoptimized={true} 
+            />
           </div>
         ))}
       </motion.div>
