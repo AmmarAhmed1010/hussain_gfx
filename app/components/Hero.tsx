@@ -6,7 +6,7 @@ import DualSlider from "./InfiniteSlider";
 
 const Hero: React.FC = () => {
   return (
-    <div className="bg-[#030303] h-[80vh] md:h-[90vh] flex flex-col justify-center items-center text-[#D4D4D4]">
+    <div className="bg-[#030303] min-h-[80vh] md:min-h-[90vh] flex flex-col justify-center items-center text-[#D4D4D4] overflow-hidden">
       {/* Hero Content */}
       <div className="text-center max-w-4xl">
         <h1 className="text-3xl md:text-5xl font-bold mb-6">
@@ -20,8 +20,8 @@ const Hero: React.FC = () => {
         </h3>
       </div>
 
-      {/* Sliders (Reduced Height for Balance) */}
-      <div className="w-full max-w-7xl">
+      {/* Sliders (Fixing Empty Space & Layout Shift) */}
+      <div className="w-full max-w-7xl overflow-hidden relative">
         <DualSlider />
       </div>
 
