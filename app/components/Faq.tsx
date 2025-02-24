@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
@@ -29,27 +29,31 @@ const Faq: React.FC = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
-      <div className="space-y-4">
+    <div className="max-w-6xl mx-auto px-2">
+      <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>
+      <div className="space-y-3 sm:space-y-4">
         {faqData.map((faq, index) => (
           <div
             key={index}
-            className={`p-4 border rounded-lg shadow-sm border-[#D4D4D4] transition-colors duration-300 ${activeIndex === index ? "bg-[#232323] text-[#FFFFFF]" : "bg-[#6B6B6B] text-[#D4D4D4]"}`}
+            className={`p-3 sm:p-4 border rounded-md sm:rounded-lg shadow-sm border-[#D4D4D4] transition-colors duration-300 ${
+              activeIndex === index ? "bg-[#232323] text-[#FFFFFF]" : "bg-[#6B6B6B] text-[#D4D4D4]"
+            }`}
           >
             <button
-              className="text-sm md:text-lg lg:text-xl font-semibold w-full text-left flex justify-between items-center focus:outline-none"
+              className="text-xs sm:text-sm md:text-lg lg:text-xl font-semibold w-full text-left flex justify-between items-center focus:outline-none"
               onClick={() => handleToggle(index)}
             >
               {faq.question}
-              <span className="hidden md:inline text-[#D4D4D4]">
+              <span className="text-[#D4D4D4]">
                 {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
               </span>
             </button>
             <div
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${activeIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                activeIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+              }`}
             >
-              <p className="mt-2">{faq.answer}</p>
+              <p className="mt-2 text-xs sm:text-sm">{faq.answer}</p>
             </div>
           </div>
         ))}
