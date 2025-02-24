@@ -4,7 +4,7 @@ import Faq from "./components/Faq";
 
 const page = () => {
   return (
-    <div>
+    <div className="mt-16">
       <Hero />
       <Faq />
     </div>
