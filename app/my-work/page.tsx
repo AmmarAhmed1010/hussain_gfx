@@ -3,7 +3,23 @@ import Image from 'next/image';
 
 const page = () => {
   const sliderImages = Array.from({ length: 8 }, (_, i) => `/slider/slider (${i + 1}).jpg`);
-  const myWorkImages = Array.from({ length: 5 }, (_, i) => `/mywork/mywork (${i + 1}).jpg`);
+  const myWorkImages = [
+    '/mywork/mywork (1).jpeg',
+    '/mywork/mywork (1).jpg',
+    '/mywork/mywork (1).png',
+    '/mywork/mywork (2).jpeg',
+    '/mywork/mywork (2).jpg',
+    '/mywork/mywork (3).jpeg',
+    '/mywork/mywork (3).jpg',
+    '/mywork/mywork (3).png',
+    '/mywork/mywork (4).jpeg',
+    '/mywork/mywork (4).jpg',
+    '/mywork/mywork (5).jpeg',
+    '/mywork/mywork (5).jpg',
+    '/mywork/mywork (6).jpeg',
+    '/mywork/mywork (7).jpeg',
+    '/mywork/mywork (9).jpeg',
+  ];
 
   const images = [...sliderImages, ...myWorkImages];
 
