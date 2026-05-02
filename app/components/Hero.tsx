@@ -2,7 +2,9 @@
 import React from "react";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-import DualSlider from "./InfiniteSlider";
+import dynamic from "next/dynamic";
+
+const DualSlider = dynamic(() => import("./InfiniteSlider"), { ssr: false });
 
 const Hero: React.FC = () => {
   return (
