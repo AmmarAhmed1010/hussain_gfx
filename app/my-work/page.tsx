@@ -4,7 +4,7 @@ import Image from 'next/image';
 const categories = [
   {
     label: 'Thumbnail',
-    height: 'h-[260px]',
+    aspect: 'aspect-video',
     images: [
       '/mywork/thumbnail/mywork (1).jpeg',
       '/mywork/thumbnail/mywork (1).jpg',
@@ -29,7 +29,7 @@ const categories = [
   },
   {
     label: 'Poster',
-    height: 'h-[420px]',
+    aspect: 'aspect-[3/4]',
     images: [
       '/mywork/poster/mywork (1).jpeg',
       '/mywork/poster/mywork (1).jpg',
@@ -38,7 +38,7 @@ const categories = [
   },
   {
     label: 'Banner',
-    height: 'h-[260px]',
+    aspect: 'aspect-[21/9]',
     images: [
       '/mywork/banner/mywork.jpg',
     ],
@@ -57,7 +57,7 @@ const page = () => {
             {category.images.map((src, index) => (
               <div
                 key={index}
-                className={`border border-white/20 rounded-xl overflow-hidden w-full h-[180px] ${category.height.replace('h-[', 'md:h-[')} flex items-center justify-center bg-white/5`}
+                className={`border border-white/20 rounded-xl overflow-hidden w-full ${category.aspect} flex items-center justify-center bg-white/5`}
               >
                 <Image
                   src={src}
