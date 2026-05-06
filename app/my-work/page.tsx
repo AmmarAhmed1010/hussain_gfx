@@ -17,6 +17,14 @@ const categories = [
       '/mywork/thumbnail/mywork (4).jpeg',
       '/mywork/thumbnail/mywork (6).jpeg',
       '/mywork/thumbnail/mywork (7).jpeg',
+      '/slider/slider (1).jpg',
+      '/slider/slider (2).jpg',
+      '/slider/slider (3).jpg',
+      '/slider/slider (4).jpg',
+      '/slider/slider (5).jpg',
+      '/slider/slider (6).jpg',
+      '/slider/slider (7).jpg',
+      '/slider/slider (8).jpg',
     ],
   },
   {
@@ -49,7 +57,7 @@ const page = () => {
             {category.images.map((src, index) => (
               <div
                 key={index}
-                className={`border border-white/20 rounded-xl overflow-hidden w-full ${category.height} flex items-center justify-center bg-white/5`}
+                className={`border border-white/20 rounded-xl overflow-hidden w-full h-[180px] ${category.height.replace('h-[', 'md:h-[')} flex items-center justify-center bg-white/5`}
               >
                 <Image
                   src={src}
